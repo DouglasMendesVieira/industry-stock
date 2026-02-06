@@ -4,6 +4,7 @@ import com.douglas.stockcontrol.domain.Product;
 import com.douglas.stockcontrol.domain.ProductMaterial;
 import com.douglas.stockcontrol.domain.RawMaterial;
 import com.douglas.stockcontrol.dto.AddMaterialToProductDTO;
+import com.douglas.stockcontrol.exception.BusinessException;
 import com.douglas.stockcontrol.repository.ProductMaterialRepository;
 import com.douglas.stockcontrol.repository.ProductRepository;
 import com.douglas.stockcontrol.repository.RawMaterialRepository;
@@ -34,11 +35,30 @@ public class ProductMaterialService {
         RawMaterial material = rawMaterialRepository.findById(dto.rawMaterialId);
 
         if (product == null) {
-            throw new RuntimeException("Product not found");
+            throw new BusinessException("Product not found");
         }
 
         if (material == null) {
-            throw new RuntimeException("Raw material not found");
+            throw new BusinessException("Raw material not found");
+        }
+
+        if (material.stockQuantity < dto.quantity) {
+            throw new BusinessException("Insufficient stock");
+        }
+
+        boolean exists =
+                repository.find(
+                                "product.id=?1 and rawMaterial.id=?2",
+                                productId,
+                                dto.rawMaterialId
+                        )
+                        .firstResultOptional()
+                        .isPresent();
+
+        if (exists) {
+            throw new BusinessException(
+                    "Material already linked to this product"
+            );
         }
 
         ProductMaterial pm = new ProductMaterial();
@@ -57,6 +77,13 @@ public class ProductMaterialService {
 
     @Transactional
     public void delete(Long id) {
-        repository.deleteById(id);
+
+        ProductMaterial pm = repository.findById(id);
+
+        if(pm == null){
+            throw new BusinessException("Association not found");
+        }
+
+        repository.delete(pm);
     }
 }

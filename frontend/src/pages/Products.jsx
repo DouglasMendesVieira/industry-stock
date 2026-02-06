@@ -13,8 +13,8 @@ export default function Products(){
     const {showToast} = useToast();
 
     const [form,setForm] = useState({
-        name:"",
         code:"",
+        name:"",
         price:""
     });
 
@@ -36,14 +36,14 @@ export default function Products(){
             setSaving(true);
 
             await productService.create({
-                name:form.name,
                 code:form.code,
+                name:form.name,
                 price:Number(form.price)
             });
 
             setForm({
-                name:"",
                 code:"",
+                name:"",
                 price:""
             });
 
@@ -90,18 +90,18 @@ export default function Products(){
                 >
 
                     <input
-                        name="name"
-                        placeholder="Name"
-                        value={form.name}
+                        name="code"
+                        placeholder="Code"
+                        value={form.code}
                         onChange={handleChange}
                         style={theme.input}
                         required
                     />
 
                     <input
-                        name="code"
-                        placeholder="Code"
-                        value={form.code}
+                        name="name"
+                        placeholder="Name"
+                        value={form.name}
                         onChange={handleChange}
                         style={theme.input}
                         required
@@ -140,7 +140,7 @@ export default function Products(){
                 >
 
                     <span>
-                        <b>{p.name}</b> — {p.code} — ${p.price}
+                        <b>{p.code}</b> — {p.name} — ${p.price}
                     </span>
 
                     <button

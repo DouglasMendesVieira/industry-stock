@@ -14,7 +14,7 @@ api.interceptors.response.use(
             error?.response?.data?.message ||
             "Unexpected error occurred";
 
-        return Promise.reject(message);
+        return Promise.reject(error);
     }
 
 );
