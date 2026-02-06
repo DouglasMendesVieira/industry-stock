@@ -1,4 +1,10 @@
-Frontend React + Vite.
+## Frontend React + Vite.
 
-npm install
-npm run dev
+# Para rodar o projeto:
+- npm install
+- npm run dev
+
+# Para rodar os testes:
+
+- npm run test
+- npm run e2e

@@ -59,6 +59,16 @@ Aplicação disponível em:
 - Ou copie manualmente os valores do arquivo .env.example
 ⚠️ O arquivo .env não é versionado por segurança.
 
+## 🧪 Tests
+
+- Unit tests → Vitest  
+- Integration → Quarkus  
+- E2E → Cypress  
+
+Run everything:
+
+- npm run e2e
+
 ## 🔥 Funcionalidades
 
 - ✅ Sistema de gestão de estoque com motor de sugestão de produção baseado em disponibilidade de insumos.
