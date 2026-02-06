@@ -51,14 +51,20 @@ Execute:
 Aplicação disponível em:
 - http://localhost:5174
 
+## 🔐 Variáveis de ambiente
+
+- Este projeto utiliza variáveis de ambiente para configuração.
+- Crie um arquivo .env com base no exemplo: 
+- cp .env.example .env
+- Ou copie manualmente os valores do arquivo .env.example
+⚠️ O arquivo .env não é versionado por segurança.
+
 ## 🔥 Funcionalidades
 
-✅ Cadastro de produtos
-✅ Cadastro de matérias-primas
-✅ Exclusão com confirmação
-✅ Feedback visual com Toast
-✅ Tratamento global de erros
-✅ Sugestão de produção baseada em estoque
+- ✅ Sistema de gestão de estoque com motor de sugestão de produção baseado em disponibilidade de insumos.
+- ✅ Exclusão com confirmação
+- ✅ Feedback visual com Toast
+- ✅ Tratamento global de erros
 
 ## 📌 Melhorias futuras
 
@@ -78,4 +84,11 @@ Aplicação disponível em:
 
 ## 📸 Preview
 
+### Produtos
 ![Products](docs/Product.png)
+
+### Matérias-primas
+![RawMaterial](docs/RawMaterial.png)
+
+### Sugestão de produção
+![Suggestion](docs/Suggestion.png)

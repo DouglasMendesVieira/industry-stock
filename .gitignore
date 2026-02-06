@@ -2,5 +2,6 @@ node_modules
 dist
 target
 .idea
+.env
 .vscode
 .DS_Store
