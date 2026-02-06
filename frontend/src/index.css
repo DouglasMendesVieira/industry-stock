@@ -1,0 +1,33 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html, body, #root{
+  height:100%;
+}
+
+body{
+  background:#0f172a;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+select {
+  background-color: #0f172a;
+  color: white;
+}
+
+select option {
+  background-color: #0f172a;
+  color: white;
+}
+
+@keyframes shine{
+    0%{
+        background-position:200% 0;
+    }
+    100%{
+        background-position:-200% 0;
+    }
+}
